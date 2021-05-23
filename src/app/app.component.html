@@ -1,0 +1,71 @@
+<div class="main-container">
+  <header>
+      <div class="container-fluid">
+          <div class="row bg-logobar py-2 px-3">
+              <div class="col-12 col-md-5 logosection">
+                      <!--<img src="" class="img-responsive logo-img" alt="logo" />-->
+                      <h1>Demo Application</h1>
+              </div>
+              <div class="my-2 col-12 col-md-7 username my-md-auto d-none d-md-block">
+                  <span>
+                      <fa-icon [icon]="['fas', 'user']" class="fa-lg"></fa-icon>&nbsp;&nbsp; Guest
+                  </span>
+              </div>
+          </div>
+      </div>
+
+      <nav class="navbar navbar-expand-md navbar-dark navbar-bg py-0">
+         
+      </nav>
+
+  </header>
+  <section>
+      <div class="container-fluid mb-4">
+        <div class="col-12 col-md-4 mt-4">
+           <h5>Simple Time Picker</h5>
+        </div>
+        <div class="col-12 col-md-3">
+            <app-time-picker [model]="model1" (onSelectedItem)="this.model1=$event"></app-time-picker>
+        </div>
+        <div class="col-12 col-md-4" *ngIf="model1 != ''">
+            Selected Value: {{model1}}
+        </div>
+
+        <div class="col-12 col-md-4 mt-4">
+            <h5>Disabled Time Picker</h5>
+        </div>
+         <div class="col-12 col-md-3">
+             <app-time-picker [model]="model2" [disabled]="disabled" (onSelectedItem)="this.model2=$event"></app-time-picker>
+         </div>
+
+         <div class="col-12 col-md-4 mt-4">
+            <h5>Value passed from parent</h5>
+         </div>
+         <div class="col-12 col-md-3">
+             <app-time-picker [model]="model3" (onSelectedItem)="this.model3=$event"></app-time-picker>
+         </div>
+         <div class="col-12 col-md-4" *ngIf="model3 != ''">
+             Selected Value: {{model3}}
+         </div>
+
+         <div class="col-12 col-md-4 mt-4">
+            <h5>Mandatory Time Picker</h5>
+         </div>
+         <div class="col-12 col-md-3">
+             <app-time-picker [model]="model4" [required]="required" (onSelectedItem)="this.model4=$event"></app-time-picker>
+         </div>
+         <div class="col-12 col-md-4" *ngIf="model4 != ''">
+             Selected Value: {{model4}}
+         </div>
+        
+   </div>
+  </section>
+
+  <footer #footerElement>
+      <div class="title-bar row">
+          <div class="col-8 text-left">
+              &copy; For demo use only
+          </div>
+      </div>
+  </footer>
+</div>

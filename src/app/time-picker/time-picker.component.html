@@ -1,0 +1,31 @@
+<form>
+<div class="col-12">
+<div class="timepicker" ngModelGroup="TimeGroup" #TimeGroup="ngModelGroup">
+    <mat-form-field class="timepicker-input-container timepicker-hour" >
+    <input type="text" matInput name="TimeHour" id="TimeHour" 
+        [ngModel]="timemodel.getHours()" (ngModelChange)="timemodel.setHours($event);updateParent()" [ngModelOptions]="{updateOn: 'blur'}"
+        #TimeHour="ngModel" inputmode="numeric" maxlength="2" placeholder="HH" 
+        [disabled] = "disabled"
+        [required]="required" [pattern]="hourRegex"/>
+    </mat-form-field>
+
+    <div class="timepicker-spacer">:</div>
+
+    <mat-form-field class="timepicker-input-container timepicker-hour" >
+        <input type="text" matInput name="TimeMinute" id="TimeMinute" 
+            [ngModel]="timemodel.getMinutes()" (ngModelChange)="timemodel.setMinutes($event);updateParent()" [ngModelOptions]="{updateOn: 'blur'}"
+            #TimeMinute="ngModel" inputmode="numeric" maxlength="2" placeholder="MM"
+            [disabled] = "disabled" [required]="required" [pattern]="minuteRegex"/>
+    </mat-form-field>
+    <div class="timepicker-input-container timepicker-spacer"> </div>
+    <div class="timepicker-meridian">
+        <button class="btn btn-outline-primary" type="button" (click)="timemodel.toggleMeridian();updateParent()"
+        [disabled] = "disabled">
+            {{timemodel.getMeridian()}}
+        </button>
+    </div>
+</div>
+<span class="mat-error" *ngIf="(TimeHour.errors?.required || TimeMinute.errors?.required)"> Time is a required field</span>
+<span class="mat-error" *ngIf="(TimeHour.errors?.pattern || TimeMinute.errors?.pattern)"> Time is invalid</span>
+</div>
+</form>

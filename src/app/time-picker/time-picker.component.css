@@ -1,0 +1,40 @@
+.timepicker{
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.timepicker-hour, .timepicker-meridian, .timepicker-minute{
+   
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+}
+
+.timepicker-input-container{
+    width: 4em;
+}
+
+.timepicker-spacer{
+    width: 1em;
+    text-align: center;
+}
+
+.timepicker-input-container input{
+    text-align: center;
+ }
+
+ .btn-outline-primary{
+     border-color: #002247;
+     color: #002247;
+ }
+
+ .btn-outline-primary:hover{
+     color: #fff!important;
+     background-color: #6d6e71;
+     border-color: #6d6e71;
+ }
